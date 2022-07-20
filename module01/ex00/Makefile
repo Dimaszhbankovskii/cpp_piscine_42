@@ -1,16 +1,16 @@
-NAME		=	phonebook
+NAME		=	zombie
 
 CCPP		=	g++
 CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
 
 RM			=	rm -rf
 
-HEADER		=	Contact.hpp \
-				Phonebook.hpp
+HEADER		=	Zombie.hpp
 
 SRCS		=	main.cpp \
-				Contact.cpp \
-				Phonebook.cpp
+				Zombie.cpp \
+				newZombie.cpp \
+				randomChump.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

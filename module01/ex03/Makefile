@@ -1,16 +1,18 @@
-NAME		=	phonebook
+NAME		=	test
 
 CCPP		=	g++
 CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
 
 RM			=	rm -rf
 
-HEADER		=	Contact.hpp \
-				Phonebook.hpp
+HEADER		=	Weapon.hpp \
+				HumanA.hpp \
+				HumanB.hpp
 
 SRCS		=	main.cpp \
-				Contact.cpp \
-				Phonebook.cpp
+				Weapon.cpp \
+				HumanA.cpp \
+				HumanB.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

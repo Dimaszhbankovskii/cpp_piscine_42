@@ -17,24 +17,24 @@ Phonebook::~Phonebook()
 
 void	Phonebook::showPrompt()
 {
-	std::cout << "--------------------------------------------------" << std::endl;
-	std::cout << "-----                                        -----" << std::endl;
-	std::cout << "-----               PhoneBook                -----" << std::endl;
-	std::cout << "-----                                        -----" << std::endl;
-	std::cout << "--------------------------------------------------" << std::endl;
-	std::cout << "-----      Welcome to program PhoneBook      -----" << std::endl;
-	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "--------------------------------------------------\n"
+		<< "-----                                        -----\n"
+		<< "-----               \033[1;36mPhoneBook\033[0m                -----\n"
+		<< "-----                                        -----\n"
+		<< "--------------------------------------------------\n"
+		<< "-----      Welcome to program PhoneBook      -----\n"
+		<< "--------------------------------------------------" << std::endl;
 	return ;
 }
 
 void	Phonebook::showCommands()
 {
-	std::cout << "--------------------------------------------------" << std::endl;
-	std::cout << "- Please select and enter an available command:  -" << std::endl;
-	std::cout << "- 1. ADD                                         -" << std::endl;
-	std::cout << "- 2. SEARCH                                      -" << std::endl;
-	std::cout << "- 3. EXIT                                        -" << std::endl;
-	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "--------------------------------------------------\n"
+		<< "- Please select and enter an available command:  -\n"
+		<< "- 1. ADD                                         -\n"
+		<< "- 2. SEARCH                                      -\n"
+		<< "- 3. EXIT                                        -\n"
+		<< "--------------------------------------------------" << std::endl;
 	return ;
 }
 
@@ -59,14 +59,14 @@ std::string	Phonebook::_inputData(std::string mess)
 		std::cout << mess << std::endl;
 		std::cout << ">> " << std::ends;
 		std::getline(std::cin, data);
-		// if (std::cin.eof())
-		// {
-		// 	std::cout << "Entered ^D. STOP PROGRAM." << std::endl;
-		// 	this->setStopFlag();
-		// 	return ;
-		// }
+		if (std::cin.eof())
+		{
+			std::cout << "Entered ^D. Program PhoneBook are exiting..." << std::endl;
+			this->setStopFlag();
+			return ("");
+		}
 		if (data.empty())
-			std::cout << ">> This field is required." << std::endl;
+			std::cout << ">> \033[0;31mThis field is required.\033[0m" << std::endl;
 		else
 			flag = false;
 	}
@@ -77,20 +77,35 @@ void	Phonebook::addContact()
 {
 	if (this->_index >= this->_maxContact)
 		this->_index = 0;
-	std::cout << "--------------------------------------------------" << std::endl;
-	std::cout << "- To add a new contact to PhoneBook fill in      -" << std::endl;
-	std::cout << "- the following information                      -" << std::endl;
-	std::cout << "--------------------------------------------------" << std::endl;
-	this->_contact[this->_index].setFirstName(this->_inputData(">> Input first name:"));
-	std::cout << "--------------------------------------------------" << std::endl;
-	this->_contact[this->_index].setLastName(this->_inputData(">> Input last name:"));
-	std::cout << "--------------------------------------------------" << std::endl;
-	this->_contact[this->_index].setNickName(this->_inputData(">> Input nickname:"));
-	std::cout << "--------------------------------------------------" << std::endl;
-	this->_contact[this->_index].setPhoneNumber(this->_inputData(">> Input phone number:"));
-	std::cout << "--------------------------------------------------" << std::endl;
-	this->_contact[this->_index].setDarkestSecret(this->_inputData(">> Input darkest secret:"));
-	std::cout << "--------------------------------------------------" << std::endl;
+	std::cout << "--------------------------------------------------\n"
+		<< "- To add a new contact to PhoneBook fill in      -\n"
+		<< "- the following information                      -\n"
+		<< "--------------------------------------------------" << std::endl;
+	if (!this->getStopFlag())
+	{
+		this->_contact[this->_index].setFirstName(this->_inputData(">> Input first name:"));
+		std::cout << "--------------------------------------------------" << std::endl;
+	}
+	if (!this->getStopFlag())
+	{
+		this->_contact[this->_index].setLastName(this->_inputData(">> Input last name:"));
+		std::cout << "--------------------------------------------------" << std::endl;
+	}
+	if (!this->getStopFlag())
+	{
+		this->_contact[this->_index].setNickName(this->_inputData(">> Input nickname:"));
+		std::cout << "--------------------------------------------------" << std::endl;
+	}
+	if (!this->getStopFlag())
+	{
+		this->_contact[this->_index].setPhoneNumber(this->_inputData(">> Input phone number:"));
+		std::cout << "--------------------------------------------------" << std::endl;
+	}
+	if (!this->getStopFlag())
+	{
+		this->_contact[this->_index].setDarkestSecret(this->_inputData(">> Input darkest secret:"));
+		std::cout << "--------------------------------------------------" << std::endl;
+	}
 	this->_index++;
 	if (this->_amount < this->_maxContact)
 		this->_amount++;

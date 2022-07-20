@@ -1,16 +1,11 @@
-NAME		=	phonebook
+NAME		=	megaphone
 
 CCPP		=	g++
 CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
 
 RM			=	rm -rf
 
-HEADER		=	Contact.hpp \
-				Phonebook.hpp
-
-SRCS		=	main.cpp \
-				Contact.cpp \
-				Phonebook.cpp
+SRCS		=	megaphone.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
@@ -32,7 +27,7 @@ $(NAME) : $(OBJS)
 	@$(CCPP) $(CFLAGSCPP) $^ -o $@
 	@echo "$(GREEN)Project succesfully compiled$(NORMAL)"
 
-%.o : %.cpp $(HEADER) Makefile
+%.o : %.cpp Makefile
 	@$(CCPP) $(CFLAGSCPP) -c $< -o $@
 	@echo "$(BLUE)Creating object file$(WHITE) --> $(notdir $@) --> $(GREEN)[Done]$(NORMAL)"
 

@@ -1,13 +1,10 @@
 #include <iostream>
-#include "Contact.hpp"
 #include "Phonebook.hpp"
 
 int	main(void)
 {
-	Contact		contact[8];
 	Phonebook	phonebook;
 	std::string	cmd;
-	// bool		flag = true;
 
 	phonebook.showPrompt();
 	while (!phonebook.getStopFlag())
@@ -15,6 +12,11 @@ int	main(void)
 		phonebook.showCommands();
 		std::cout << ">> " << std::ends;
 		std::getline(std::cin, cmd);
+		if (std::cin.eof())
+		{
+			std::cout << "Entered ^D. Program PhoneBook are exiting..." << std::endl;
+			return (0);
+		}
 		std::cout << "--------------------------------------------------" << std::endl;
 		if (cmd == "ADD")
 			phonebook.addContact();
@@ -22,7 +24,6 @@ int	main(void)
 			phonebook.searchContact();
 		else if (cmd == "EXIT")
 		{
-			// flag = false;
 			phonebook.setStopFlag();
 			phonebook.finishWork();
 		}
