@@ -5,11 +5,20 @@ static int	replaceData(std::string fileName, std::string s1, std::string s2, std
 {
 	std::ifstream	inputFile;
 	std::ofstream	outputFile;
+	std::string		content;
+	std::size_t		position;
+	std::size_t		i = 0;
 
 	inputFile.open(fileName.c_str());
 	if (!inputFile.is_open())
 	{
 		std::cout << "Can't open input file!" << std::endl;
+		return (1);
+	}
+	if (inputFile.peek() == std::ifstream::traits_type::eof())
+	{
+		std::cout << "Input file is empty!" << std::endl;
+		inputFile.close();
 		return (1);
 	}
 	outputFile.open(replaceFileName.c_str());
@@ -19,12 +28,20 @@ static int	replaceData(std::string fileName, std::string s1, std::string s2, std
 		std::cout << "Can't open output file!" << std::endl;
 		return (1);
 	}
-	
-	
-	// if (inputFile.is_open() && outputFile.is_open())
-	// 	std::cout << "Files are open!" << std::endl;
-	(void) s1;
-	(void) s2;
+	std::getline(inputFile, content, '\0');
+	position = content.find(s1);
+	while (position != std::string::npos)
+	{
+		while (i != position)
+			outputFile << content[i++];
+		outputFile << s2;
+		i += s1.size();
+		position = content.find(s1, i);  
+	}
+	while (i != content.size())
+		outputFile << content[i++];
+	inputFile.close();
+	outputFile.close();
 	return (0);
 }
 

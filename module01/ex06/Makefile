@@ -1,14 +1,15 @@
-NAME		=	the_job_of_your_dream
+NAME		=	harlFilter
 
 CCPP		=	g++
-CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
+CFLAGSCPP	=	-Wall -std=c++98
+#CFLAGSCPP	=	-Wall -Wextra -Werror=implicit-fallthrough -std=c++98
 
 RM			=	rm -rf
 
-HEADER		=	Account.hpp
+HEADER		=	Harl.hpp
 
-SRCS		=	tests.cpp \
-				Account.cpp
+SRCS		=	main.cpp \
+				Harl.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 
