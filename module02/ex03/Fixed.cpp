@@ -25,7 +25,7 @@ Fixed::~Fixed()
 {
 }
 
-Fixed &	Fixed::operator = (Fixed const & src)
+Fixed &	Fixed::operator = (Fixed const &src)
 {
 	if (this == &src)
 		return (*this);
