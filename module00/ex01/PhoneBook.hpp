@@ -1,21 +1,22 @@
 #ifndef PHONEBOOK_HPP
 # define PHONEBOOK_HPP
 
+# include <iomanip>
 # include "Contact.hpp"
 
-class Phonebook
+class PhoneBook
 {
 public:
-	Phonebook();
-	~Phonebook();
+	PhoneBook();
+	~PhoneBook();
 
-	void		showPrompt();
-	void		showCommands();
+	void		showPrompt() const;
+	void		showCommands() const;
 	void		setStopFlag();
 	bool		getStopFlag();
 	void		addContact();
 	void		searchContact();
-	void		finishWork();
+	void		finishWork() const;
 
 private:
 	Contact		_contact[8];
@@ -24,8 +25,8 @@ private:
 	int			_maxContact;
 	bool		_stopFlag;
 
-	std::string	_inputData(std::string mess);
-	std::string	_printFormatStr(std::string strNoFormat);
+	std::string	_inputData(std::string const mess);
+	std::string	_printFormatStr(std::string const strNoFormat);
 	void		_printContactInf();
 };
 

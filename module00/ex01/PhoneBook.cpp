@@ -1,33 +1,31 @@
 #include <iostream>
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
-Phonebook::Phonebook()
+PhoneBook::PhoneBook()
 {
 	this->_index = 0;
 	this->_amount = 0;
 	this->_maxContact = 8;
 	this->_stopFlag = false;
-	return;
 }
 
-Phonebook::~Phonebook()
+PhoneBook::~PhoneBook()
 {
-	return;
 }
 
-void	Phonebook::showPrompt()
+void	PhoneBook::showPrompt() const
 {
-	std::cout << "--------------------------------------------------\n"
-		<< "-----                                        -----\n"
-		<< "-----               \033[1;36mPhoneBook\033[0m                -----\n"
-		<< "-----                                        -----\n"
-		<< "--------------------------------------------------\n"
-		<< "-----      Welcome to program PhoneBook      -----\n"
-		<< "--------------------------------------------------" << std::endl;
+	std::cout << "--------------------------------------------------\n";
+	std::cout << "-----                                        -----\n";
+	std::cout << "-----               \033[1;36mPhoneBook\033[0m                -----\n";
+	std::cout << "-----                                        -----\n";
+	std::cout << "--------------------------------------------------\n";
+	std::cout << "-----      Welcome to program PhoneBook      -----\n";
+	std::cout << "--------------------------------------------------" << std::endl;
 	return ;
 }
 
-void	Phonebook::showCommands()
+void	PhoneBook::showCommands() const
 {
 	std::cout << "--------------------------------------------------\n"
 		<< "- Please select and enter an available command:  -\n"
@@ -38,18 +36,18 @@ void	Phonebook::showCommands()
 	return ;
 }
 
-void	Phonebook::setStopFlag()
+void	PhoneBook::setStopFlag()
 {
 	this->_stopFlag = true;
 	return ;
 }
 
-bool	Phonebook::getStopFlag()
+bool	PhoneBook::getStopFlag()
 {
 	return (this->_stopFlag);
 }
 
-std::string	Phonebook::_inputData(std::string mess)
+std::string	PhoneBook::_inputData(std::string const mess)
 {
 	std::string	data;
 	bool		flag = true;
@@ -73,7 +71,7 @@ std::string	Phonebook::_inputData(std::string mess)
 	return (data);
 }
 
-void	Phonebook::addContact()
+void	PhoneBook::addContact()
 {
 	if (this->_index >= this->_maxContact)
 		this->_index = 0;
@@ -112,48 +110,48 @@ void	Phonebook::addContact()
 	return ;
 }
 
-std::string	Phonebook::_printFormatStr(std::string strNoFormat)
+std::string	PhoneBook::_printFormatStr(std::string const strNoFormat)
 {
-	std::string	strFormat;
+	std::string	strFormat = strNoFormat;
 	int			lenStr = strNoFormat.length();
 
 	if (lenStr >= 10)
 	{
-		strFormat = strNoFormat;
 		strFormat.resize(9);
 		strFormat += ".";
-	}
-	else
-	{
-		for (int i = 0; i < 10 - lenStr; i++)
-			strFormat += " ";
-		strFormat += strNoFormat;
 	}
 	return (strFormat);
 }
 
-void	Phonebook::_printContactInf()
+void	PhoneBook::_printContactInf()
 {
 	std::string	tmp;
 	int			index;
 
 	std::cout << ">> " << std::ends;
 	std::getline(std::cin, tmp);
-	if (tmp.length() > 1)
-		std::cout << ">> Invalid index entered." << std::endl;
-	else
+	if (std::cin.eof())
 	{
-		index = tmp[0] - 48;
+		std::cout << "Entered ^D. Program PhoneBook are exiting..." << std::endl;
+		this->setStopFlag();
+		return ;
 	}
+	if (tmp.length() > 1)
+	{
+		std::cout << ">> Invalid index entered." << std::endl;
+		return ;
+	}
+	else
+		index = tmp[0] - 48;
 	if (index >= 1 && index <= this->_maxContact)
 	{
 		if (index <= this->_amount)
 		{
-			std::cout << ">> First name: " << this->_contact[index - 1].getFirstName() << "\n"
-				<< ">> Last name: " << this->_contact[index - 1].getLastName() << "\n"
-				<< ">> Nickname: " << this->_contact[index - 1].getNickName() << "\n"
-				<< ">> Phone number: " << this->_contact[index - 1].getPhoneNumber() << "\n"
-				<< ">> Darkest secret: " << this->_contact[index - 1].getDarkestSecret() << std::endl;
+			std::cout << ">> First name: " << this->_contact[index - 1].getFirstName() << "\n";
+			std::cout << ">> Last name: " << this->_contact[index - 1].getLastName() << "\n";
+			std::cout << ">> Nickname: " << this->_contact[index - 1].getNickName() << "\n";
+			std::cout << ">> Phone number: " << this->_contact[index - 1].getPhoneNumber() << "\n";
+			std::cout << ">> Darkest secret: " << this->_contact[index - 1].getDarkestSecret() << std::endl;
 		}
 		else
 			std::cout << ">> This contact does not exist in PhoneBook." << std::endl;
@@ -163,33 +161,37 @@ void	Phonebook::_printContactInf()
 	return ;
 }
 
-void	Phonebook::searchContact()
+void	PhoneBook::searchContact()
 {
 	if (!this->_amount)
 	{
 		std::cout << ">> PhoneBook is empty. First add a contact." << std::endl;
 		return ;
 	}
-	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << "|     Index|First name| Last name|  Nickname|" << std::endl;
-	std::cout << "---------------------------------------------" << std::endl;
+	std::cout << "---------------------------------------------\n";
+	std::cout << "|" << std::setw(10) << "Index";
+	std::cout << "|" << std::setw(10) << "First name";
+	std::cout << "|" << std::setw(10) << "Last name";
+	std::cout << "|" << std::setw(10) << "Nickname" << "|\n";
+	std::cout << "---------------------------------------------\n";
+
 	for (int i = 0; i < this->_amount; i++)
 	{
-		std::cout << "|" << "         " << i + 1 << "|" 
-			<< this->_printFormatStr(this->_contact[i].getFirstName()) << "|"
-			<< this->_printFormatStr(this->_contact[i].getLastName()) << "|"
-			<< this->_printFormatStr(this->_contact[i].getNickName())
-			<< "|" << std::endl;
+		std::cout << "|" << std::setw(10) << i + 1;
+		std::cout << "|" << std::setw(10) << this->_printFormatStr(this->_contact[i].getFirstName());
+		std::cout << "|" << std::setw(10) << this->_printFormatStr(this->_contact[i].getLastName());
+		std::cout << "|" << std::setw(10) << this->_printFormatStr(this->_contact[i].getNickName());
+		std::cout << "|" << std::endl;
 	}
-	std::cout << "---------------------------------------------" << std::endl;
-	std::cout << "- To display details information of contact -\n" 
-		<< "- select and enter index (1, 2, ... 8).     -" << std::endl;
+	std::cout << "---------------------------------------------\n";
+	std::cout << "- To display details information of contact -\n"; 
+	std::cout << "- select and enter index (1, 2, ... 8).     -\n";
 	std::cout << "---------------------------------------------" << std::endl;
 	this->_printContactInf();
 	return ;
 }
 
-void	Phonebook::finishWork()
+void	PhoneBook::finishWork() const
 {
 	std::cout << "Program PhoneBook are exiting...\nThanks!" << std::endl;
 	return ;

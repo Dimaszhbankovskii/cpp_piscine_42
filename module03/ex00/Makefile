@@ -1,16 +1,14 @@
-NAME		=	phonebook
+NAME		=	claptrap
 
-CCPP		=	c++
-CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
+CCPP		=	g++
+CFLAGSCPP	=	-Wall -Wextra -Werror=implicit-fallthrough -std=c++98
 
 RM			=	rm -rf
 
-HEADER		=	Contact.hpp \
-				PhoneBook.hpp
+HEADER		=	ClapTrap.hpp
 
 SRCS		=	main.cpp \
-				Contact.cpp \
-				PhoneBook.cpp
+				ClapTrap.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

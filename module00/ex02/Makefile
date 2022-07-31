@@ -1,6 +1,6 @@
 NAME		=	the_job_of_your_dream
 
-CCPP		=	g++
+CCPP		=	c++
 CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
 
 RM			=	rm -rf

@@ -1,9 +1,8 @@
-#include <iostream>
-#include "Phonebook.hpp"
+#include "PhoneBook.hpp"
 
 int	main(void)
 {
-	Phonebook	phonebook;
+	PhoneBook	phonebook;
 	std::string	cmd;
 
 	phonebook.showPrompt();
