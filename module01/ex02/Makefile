@@ -1,6 +1,6 @@
-NAME		=	string
+NAME		=	hi_this_is_brain
 
-CCPP		=	g++
+CCPP		=	c++
 CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
 
 RM			=	rm -rf

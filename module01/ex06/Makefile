@@ -1,8 +1,7 @@
 NAME		=	harlFilter
 
-CCPP		=	g++
-CFLAGSCPP	=	-Wall -std=c++98
-#CFLAGSCPP	=	-Wall -Wextra -Werror=implicit-fallthrough -std=c++98
+CCPP		=	c++
+CFLAGSCPP	=	-Wall -Wextra -Werror -std=c++98
 
 RM			=	rm -rf
 

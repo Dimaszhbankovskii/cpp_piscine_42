@@ -10,19 +10,19 @@
 
 class Harl
 {
-private:
-	void	debug();
-	void	info();
-	void	warning();
-	void	error();
-
 public:
 	Harl();
 	~Harl();
 
 	void	complain(std::string level);
+
+private:
+	void	_debug() const;
+	void	_info() const;
+	void	_warning() const;
+	void	_error() const;
 };
 
-typedef void (Harl::*function_prt)(void);
+typedef void (Harl::*function_prt)(void) const;
 
 #endif

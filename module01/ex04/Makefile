@@ -1,6 +1,6 @@
 NAME		=	sed_is_for_losers
 
-CCPP		=	g++
+CCPP		=	c++
 CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
 
 RM			=	rm -rf

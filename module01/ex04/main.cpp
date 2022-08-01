@@ -1,7 +1,8 @@
 #include <iostream>
 #include <fstream>
 
-static int	replaceData(std::string fileName, std::string s1, std::string s2, std::string replaceFileName)
+static int	replaceData(std::string const fileName, std::string const s1, std::string const s2,
+std::string const replaceFileName)
 {
 	std::ifstream	inputFile;
 	std::ofstream	outputFile;
@@ -57,6 +58,11 @@ int	main(int argc, char **argv)
 	fileName = argv[1];
 	s1 = argv[2];
 	s2 = argv[3];
+	if (fileName.empty() || s1.empty())
+	{
+		std::cout << "Value of arguments is invalid!" << std::endl;
+		return (1);
+	}
 	replaceFileName = fileName;
 	replaceFileName.append(".replace");
 	return (replaceData(fileName, s1, s2, replaceFileName));

@@ -1,6 +1,6 @@
-NAME		=	zombie_hords
+NAME		=	zombie_horde
 
-CCPP		=	g++
+CCPP		=	c++
 CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
 
 RM			=	rm -rf

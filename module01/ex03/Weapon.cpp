@@ -9,7 +9,7 @@ Weapon::~Weapon()
 {
 }
 
-std::string const	&Weapon::getType()
+std::string const	&Weapon::getType() const
 {
 	const std::string	&typeRef = this->_type;
 	return (typeRef);
