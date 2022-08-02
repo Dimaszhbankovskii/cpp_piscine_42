@@ -1,4 +1,4 @@
-NAME		=	test
+NAME		=	unnecessary_violence
 
 CCPP		=	c++
 CFLAGSCPP	=	-Wall -Werror -Wextra -std=c++98
