@@ -2,8 +2,9 @@
 
 const int	Fixed::_fractionalBit = 8;
 
-Fixed::Fixed() : _fixedPointValue(0)
+Fixed::Fixed()
 {
+	this->_fixedPointValue = 0;
 }
 
 Fixed::Fixed(int const intNum)

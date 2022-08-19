@@ -324,5 +324,39 @@ int	main()
 		std::cout << "------------------------------------------------------------" << std::endl;
 	}
 
+	std::cout << "------------------------------------------------------------" << std::endl;
+	std::cout << "--                    Function MIN MAX-                   --" << std::endl;
+	std::cout << "------------------------------------------------------------" << std::endl;
+
+	{
+		Fixed	f1(2);
+		Fixed	f2(1.25f);
+		Fixed	f3(-1.25f);
+		Fixed	f4(1.25f);
+
+		std::cout << "min(2, 1.25f) ==> " << Fixed::min(f1, f2) << "\n";
+		std::cout << "min(-1.25, 1.25f) ==> " << Fixed::min(f3, f4) << "\n";
+		std::cout << "max(2, 1.25f) ==> " << Fixed::max(f1, f2) << "\n";
+		std::cout << "max(2, -1.25f) ==> " << Fixed::max(f1, f3) << "\n";
+		std::cout << "max(1.25f, 1.25f) ==> " << Fixed::max(f2, f4)  << "\n";
+
+		std::cout << "------------------------------------------------------------" << std::endl;
+	}
+
+	{
+		Fixed const	f1(2);
+		Fixed const	f2(1.25f);
+		Fixed const	f3(-1.25f);
+		Fixed const	f4(1.25f);
+
+		std::cout << "min(2, 1.25f) ==> " << Fixed::min(f1, f2) << "\n";
+		std::cout << "min(-1.25, 1.25f) ==> " << Fixed::min(f3, f4) << "\n";
+		std::cout << "max(2, 1.25f) ==> " << Fixed::max(f1, f2) << "\n";
+		std::cout << "max(2, -1.25f) ==> " << Fixed::max(f1, f3) << "\n";
+		std::cout << "max(1.25f, 1.25f) ==> " << Fixed::max(f2, f4)  << "\n";
+
+		std::cout << "------------------------------------------------------------" << std::endl;
+	}
+
 	return (0);
 }
