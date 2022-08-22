@@ -10,12 +10,20 @@ public:
 	DiamondTrap();
 	DiamondTrap(std::string const name);
 	DiamondTrap(DiamondTrap const &src);
+	DiamondTrap& operator=(DiamondTrap const &src);
 	~DiamondTrap();
 
-	DiamondTrap	& operator = (DiamondTrap const &src);
+	std::string		getName() const;
+	unsigned int	getHitPoints() const;
+	unsigned int	getEnergyPoints() const;
+	unsigned int	getAttackDamage() const;
+
+	void	whoAmI() const;
 
 private:
 	std::string	_name;
 };
+
+std::ostream& operator<<(std::ostream &outStream, DiamondTrap const &diamondtrap);
 
 #endif

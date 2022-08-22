@@ -1,7 +1,7 @@
 NAME		=	scavtrap
 
-CCPP		=	g++
-CFLAGSCPP	=	-Wall -Wextra -Werror=implicit-fallthrough -std=c++98
+CCPP		=	c++
+CFLAGSCPP	=	-Wall -Wextra -Werror=extra -std=c++98
 
 RM			=	rm -rf
 

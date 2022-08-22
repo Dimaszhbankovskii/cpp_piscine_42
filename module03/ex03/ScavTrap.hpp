@@ -3,18 +3,19 @@
 
 # include "ClapTrap.hpp"
 
-class ScavTrap : public ClapTrap
+class ScavTrap : public virtual ClapTrap
 {
 public:
 	ScavTrap();
 	ScavTrap(std::string const name);
 	ScavTrap(ScavTrap const &src);
+	ScavTrap& operator=(ScavTrap const &src);
 	~ScavTrap();
 
 	void	attack(std::string const &target);
 	void	guardGate();
 };
 
-std::ostream	& operator << (std::ostream &outStream, ScavTrap const &scavtrap);
+std::ostream& operator<<(std::ostream &outStream, ScavTrap const &scavtrap);
 
 #endif

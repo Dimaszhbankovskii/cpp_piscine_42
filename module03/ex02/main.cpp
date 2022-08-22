@@ -123,6 +123,7 @@ int	main()
 
 	fragtrap77.highFivesGuys();
 	fragtrap77.highFivesGuys();
+	fragtrap88.highFivesGuys();
 
 	std::cout << "----------------------------------------------------------------------" << std::endl;
 	std::cout << fragtrap77 << "\n\n" << fragtrap88 << "\n\n";

@@ -1,14 +1,18 @@
-NAME		=	claptrap
+NAME		=	animal
 
 CCPP		=	c++
 CFLAGSCPP	=	-Wall -Wextra -Werror -std=c++98
 
 RM			=	rm -rf
 
-HEADER		=	ClapTrap.hpp
+HEADER		=	Animal.hpp \
+				Cat.hpp \
+				Dog.hpp
 
 SRCS		=	main.cpp \
-				ClapTrap.cpp
+				Animal.cpp \
+				Cat.cpp \
+				Dog.cpp
 
 OBJS		=	$(SRCS:.cpp=.o)
 

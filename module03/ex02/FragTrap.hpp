@@ -9,11 +9,12 @@ public:
 	FragTrap();
 	FragTrap(std::string const name);
 	FragTrap(FragTrap const &src);
+	FragTrap& operator=(FragTrap const &src);
 	~FragTrap();
 
 	void	highFivesGuys();
 };
 
-std::ostream	& operator << (std::ostream &outStream, FragTrap const &fragtrap);
+std::ostream& operator<<(std::ostream &outStream, FragTrap const &fragtrap);
 
 #endif
