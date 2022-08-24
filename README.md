@@ -65,7 +65,7 @@ This module focuses on templated containers, iterators and algorithms in CPP.
 
 # General rules
 
-- Compile your code with `c++` and the flags `-Wall -Wextra -Werror`
+- Compile code with `c++` and the flags `-Wall -Wextra -Werror`
 
 - Code should still compile with the flag `-std=c++98`
 
