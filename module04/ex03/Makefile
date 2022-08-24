@@ -1,4 +1,4 @@
-NAME		=	animal
+NAME		=	materia
 
 CCPP		=	c++
 CFLAGSCPP	=	-Wall -Wextra -Werror -std=c++98
@@ -7,22 +7,24 @@ RM			=	rm -rf
 
 HEADER_DIR	=	includes
 
-HEADER_LIST	=		Animal.hpp \
-					Cat.hpp \
-					Dog.hpp \
-					WrongAnimal.hpp \
-					WrongCat.hpp
+HEADER_LIST	=		AMateria.hpp \
+					Ice.hpp \
+					Cure.hpp \
+					ICharacter.hpp \
+					Character.hpp \
+					IMateriaSource.hpp \
+					MateriaSource.hpp
 
 HEADERS		=	$(addprefix $(HEADER_DIR)/,$(HEADER_LIST))
 
 SRCS_DIR	=	srcs
 
 SRCS_LIST	=	main.cpp \
-				Animal.cpp \
-				Cat.cpp \
-				Dog.cpp \
-				WrongAnimal.cpp \
-				WrongCat.cpp
+				AMateria.cpp \
+				Ice.cpp \
+				Cure.cpp \
+				Character.cpp \
+				MateriaSource.cpp
 
 SRCS		=	$(addprefix $(OBJS_DIR)/,$(SRCS_LIST))
 

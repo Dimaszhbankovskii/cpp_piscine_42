@@ -10,8 +10,7 @@ HEADER_DIR	=	includes
 HEADER_LIST	=		Animal.hpp \
 					Cat.hpp \
 					Dog.hpp \
-					WrongAnimal.hpp \
-					WrongCat.hpp
+					Brain.hpp
 
 HEADERS		=	$(addprefix $(HEADER_DIR)/,$(HEADER_LIST))
 
@@ -21,8 +20,7 @@ SRCS_LIST	=	main.cpp \
 				Animal.cpp \
 				Cat.cpp \
 				Dog.cpp \
-				WrongAnimal.cpp \
-				WrongCat.cpp
+				Brain.cpp
 
 SRCS		=	$(addprefix $(OBJS_DIR)/,$(SRCS_LIST))
 
