@@ -114,6 +114,8 @@ int	main()
 		AMateria	*tmpIce = new Ice();
 		AMateria	*tmpCure = new Cure();
 
+		std::cout << "--------------------------------------------------" << std::endl;
+
 		src->learnMateria(tmpIce);
 		src->learnMateria(tmpCure);
 		
