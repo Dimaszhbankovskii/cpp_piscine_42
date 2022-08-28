@@ -2,6 +2,7 @@
 # define BUREAUCRAT_HPP
 
 # include <iostream>
+# include "Form.hpp"
 
 # define NORMAL	"\033[0m"
 # define BLACK	"\033[1;30m"
@@ -15,6 +16,8 @@
 
 # define MAX_GRADE 1
 # define MIN_GRADE 150
+
+class Form;
 
 class Bureaucrat
 {
@@ -35,6 +38,8 @@ public:
 	int					getGrade() const;
 	void				incrementGrade();
 	void				decrementGrade();
+	void				signForm(Form &form) const;
+	void				executeForm(Form const &form) const;
 
 	class GradeTooHighException : public std::exception
 	{

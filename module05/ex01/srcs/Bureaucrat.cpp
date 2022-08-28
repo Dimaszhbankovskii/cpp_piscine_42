@@ -79,6 +79,20 @@ void	Bureaucrat::_setName(std::string name)
 	*tmp = name;
 }
 
+void	Bureaucrat::signForm(Form &form) const
+{
+	try
+	{
+		form.beSigned(*this);
+		std::cout << this->getName() << " signed " << form.getName() << std::endl;
+	}
+	catch(const std::exception& exc)
+	{
+		std::cout << this->getName() << " couldn't sign " << form.getName();
+		std::cout << " because " << exc.what() << std::endl;
+	}
+}
+
 char const	*Bureaucrat::GradeTooHighException::what() const throw()
 {
 	return ("Bureaucrat grade is too high!!!");
