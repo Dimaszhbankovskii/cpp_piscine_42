@@ -58,7 +58,7 @@ void	RobotomyRequestForm::execute(Bureaucrat const &executor) const
 	if (executor.getGrade() > this->getGradeToExecute())
 		throw Form::GradeTooHignException();
 	
-	// std::srand(std::time(nullptr));
+	std::srand(std::time(NULL));
 	if (std::rand() % 2 == 1)
 		std::cout << this->getTarget() << " has been robotomized successfully" << std::endl;
 	else

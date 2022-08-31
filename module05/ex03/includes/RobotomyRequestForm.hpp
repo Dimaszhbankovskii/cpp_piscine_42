@@ -3,6 +3,7 @@
 
 # include "Form.hpp"
 # include <cstdlib>
+# include <ctime>
 
 # define GRADE_SIGN_ROBOTOMY 72
 # define GRADE_EXECUTE_ROBOTOMY 45
