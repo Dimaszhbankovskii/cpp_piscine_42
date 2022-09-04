@@ -1,7 +1,7 @@
 #include <ctime>
 #include <cstdlib>
 #include <climits>
-#include "../includes/Span.hpp"
+#include "Span.hpp"
 
 #define SIZE_1 5
 #define SIZE_2 20

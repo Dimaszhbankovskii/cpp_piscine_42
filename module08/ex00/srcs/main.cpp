@@ -1,7 +1,7 @@
 #include <iostream>
 #include <vector>
 #include <list>
-#include "../includes/easyfind.hpp"
+#include "easyfind.hpp"
 
 #define SIZE_1 10
 #define SIZE_2 15

@@ -44,7 +44,7 @@ $(NAME) : $(OBJS)
 	@echo "$(GREEN)Project succesfully compiled$(NORMAL)"
 
 $(OBJS_DIR)/%.o : $(SRCS_DIR)/%.cpp $(HEADERS) $(TEMPLATES) Makefile
-	@$(CCPP) $(CFLAGSCPP) -c $< -o $@
+	@$(CCPP) $(CFLAGSCPP) -c $< -o $@ -I./$(HEADER_DIR)
 	@echo "$(BLUE)Creating object file$(WHITE) --> $(notdir $@) --> $(GREEN)[Done]$(NORMAL)"
 
 $(OBJS_DIR) :

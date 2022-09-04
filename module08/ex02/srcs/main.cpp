@@ -1,6 +1,6 @@
 #include <list>
 #include <iomanip>
-#include "../includes/MutantStack.hpp"
+#include "MutantStack.hpp"
 
 int	main()
 {
