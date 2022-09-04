@@ -2,27 +2,25 @@
 
 Span::Span()
 {
-	std::cout << "Span Default constructor without parametr called" << std::endl;
+	std::cout << GREEN << "Span Default constructor without parametr called" << NORMAL << std::endl;
 	this->_maxSizeVector = 0;
 }
 
 Span::Span(unsigned int N)
 {
-	std::cout << "Span Default constructor called" << std::endl;
+	std::cout << GREEN << "Span Default constructor called" << NORMAL << std::endl;
 	this->_maxSizeVector = N;
-	// for (unsigned int i = 0; i < this->_sizeVector; i++)
-	// 	this->_intVector[i] = 0;
 }
 
 Span::Span(Span const &src)
 {
-	std::cout << "Span Copy constructor called" << std::endl;
+	std::cout << GREEN << "Span Copy constructor called" << NORMAL << std::endl;
 	*this = src;
 }
 
 Span	&Span::operator=(Span const &src)
 {
-	std::cout << "Span Copy assignment called" << std::endl;
+	std::cout << GREEN << "Span Copy assignment called" << NORMAL << std::endl;
 	if (this == &src)
 		return (*this);
 	this->_maxSizeVector = src._maxSizeVector;
@@ -32,7 +30,7 @@ Span	&Span::operator=(Span const &src)
 
 Span::~Span()
 {
-	std::cout << "Span Destructor called" << std::endl;
+	std::cout << GREEN << "Span Destructor called" << NORMAL << std::endl;
 }
 
 size_t	Span::getSizeVector() const
@@ -54,14 +52,50 @@ void	Span::addNumber(int number)
 	this->_intVector.push_back(number);
 }
 
-// int	Span::shortestSpan()
-// {
-// 	if (this->_intVector.size())
+void	Span::addManyNumbers(std::vector<int>::iterator begin, std::vector<int>::iterator end)
+{
+	std::vector<int>	tmpVector(begin, end);
 
-// 	int	result;
+	if ((this->_maxSizeVector - this->_intVector.size()) < tmpVector.size())
+		throw Span::NoSpaceInVectorForIter();
+	std::copy(tmpVector.begin(), tmpVector.end(), std::back_inserter(this->_intVector));
+}
 
-// 	return (result);
-// }
+unsigned int	Span::shortestSpan()
+{
+	if (this->_intVector.size() < 2)
+		throw Span::FewElementsForCalculationsExcexption();
+
+	std::vector<int>	tmpVector = this->_intVector;
+	unsigned int		result, tmpMin;
+
+	std::sort(tmpVector.begin(), tmpVector.end());
+
+	result = tmpVector[1] - tmpVector[0];
+	for (std::vector<int>::iterator iter = tmpVector.begin() + 1; iter != tmpVector.end() - 1; ++iter)
+	{
+		tmpMin = *(iter + 1) - *iter;
+		if (result > tmpMin)
+			result = tmpMin;
+		if (!result)
+			return (result);
+	}
+	return (result);
+}
+
+unsigned int	Span::longestSpan()
+{
+	if (this->_intVector.size() < 2)
+		throw Span::FewElementsForCalculationsExcexption();
+
+	std::vector<int>	tmpVector = this->_intVector;
+
+	std::sort(tmpVector.begin(), tmpVector.end());
+	
+	unsigned int	result = *(tmpVector.end() - 1) - *tmpVector.begin();
+
+	return (result);
+}
 
 char const	*Span::InvalidIndexVectorException::what() const throw()
 {
@@ -71,6 +105,16 @@ char const	*Span::InvalidIndexVectorException::what() const throw()
 char const	*Span::VectorIsFullException::what() const throw()
 {
 	return ("Container is full. New item cannot be added!!!");
+}
+
+char const	*Span::FewElementsForCalculationsExcexption::what() const throw()
+{
+	return ("There are few elements in the container to calculate!!!");
+}
+
+char const	*Span::NoSpaceInVectorForIter::what() const throw()
+{
+	return ("Container has no space to fill with iterator!!!");
 }
 
 std::ostream	&operator<<(std::ostream &outstream, Span const &src)

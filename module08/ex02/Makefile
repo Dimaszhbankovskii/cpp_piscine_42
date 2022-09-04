@@ -1,4 +1,4 @@
-NAME		=	span
+NAME		=	mutant_stack
 
 CCPP		=	c++
 CFLAGSCPP	=	-Wall -Wextra -Werror -std=c++98
@@ -7,14 +7,17 @@ RM			=	rm -rf
 
 HEADER_DIR	=	includes
 
-HEADER_LIST	=	Span.hpp
+HEADER_LIST	=	MutantStack.hpp
 
 HEADERS		=	$(addprefix $(HEADER_DIR)/,$(HEADER_LIST))
 
+TEMPLATE_LIST	=	MutantStack.tpp
+
+TEMPLATES	=	$(addprefix $(HEADER_DIR)/,$(TEMPLATE_LIST))
+
 SRCS_DIR	=	srcs
 
-SRCS_LIST	=	main.cpp \
-				Span.cpp
+SRCS_LIST	=	main.cpp
 
 SRCS		=	$(addprefix $(OBJS_DIR)/,$(SRCS_LIST))
 
