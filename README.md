@@ -1,4 +1,4 @@
-#  Piscine-CPP <img alt="C++ icon" src="./images/c-plus-plus-logo.png" width="50" height="50"> <img alt="42 icon" src="./images/42-logo.svg.png"  width="50" height="50"> <img alt="21 icon" src="./images/21-logo.webp" width="50" height="50">
+# Piscine-CPP <img alt="C++ icon" src="./images/c-plus-plus-logo.png" width="50" height="50"> <img alt="42 icon" src="./images/42-logo.svg.png"  width="50" height="50"> <img alt="21 icon" src="./images/21-logo.webp" width="50" height="50">
 
 # Contents <a name="RefContents"></a>
 
